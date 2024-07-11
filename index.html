@@ -7,13 +7,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Local Video Embed -->
+    <!-- YouTube Video Embed -->
     <div id="intro-video-section" class="video-section">
         <div id="intro-video-container" class="video-wrapper">
-            <video id="intro-video" width="1200" height="675" autoplay>
-                <source src="https://dl.dropboxusercontent.com/scl/fi/rz4tqf66qiwxhc8q0lv2t/intro-video.mp4?rlkey=gt5sblniaky4eh3uoglqzahmq&e=1&dl=0" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <iframe id="intro-video" width="1200" height="675" src="https://www.youtube.com/embed/DqX6vSCv2lA?autoplay=1&mute=1&enablejsapi=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <!-- Click to Enter Button -->
         <div id="enter-button-container" class="button-container" style="display: none;">
@@ -67,15 +64,38 @@
     </div>
 
     <script>
-        document.getElementById('intro-video').addEventListener('ended', function() {
-            document.getElementById('enter-button-container').style.display = 'block';
-        });
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('intro-video', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
 
-        // Show the map and hide the video section
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            event.target.unMute();  // Ensure the video is unmuted
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.ENDED) {
+                document.getElementById('enter-button-container').style.display = 'block';
+            }
+        }
+
+        // Show the map and hide the button
         function showMap() {
             document.getElementById('intro-video-section').style.display = 'none';
             document.getElementById('map-container').style.display = 'flex';
         }
+
+        // Load YouTube API script
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         // Show popup
         function showPopup(popupId) {
