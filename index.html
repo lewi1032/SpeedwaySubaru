@@ -66,7 +66,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script>
         document.getElementById('intro-video').addEventListener('ended', function() {
             document.getElementById('enter-button-container').style.display = 'block';
@@ -76,6 +75,16 @@
         function showMap() {
             document.getElementById('intro-video-section').style.display = 'none';
             document.getElementById('map-container').style.display = 'flex';
+        }
+
+        // Show popup
+        function showPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+        }
+
+        // Close popup
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
         }
     </script>
 </body>
