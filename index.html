@@ -10,7 +10,7 @@
     <!-- YouTube Video Embed -->
     <div id="intro-video-section" class="video-section">
         <div id="intro-video-container" class="video-wrapper">
-            <iframe id="intro-video" width="1200" height="675" src="https://www.youtube.com/embed/DqX6vSCv2lA?si=kQfcgnc46gGlP4ZN&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe id="intro-video" width="1200" height="675" src="https://www.youtube.com/embed/DqX6vSCv2lA?enablejsapi=1&controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <!-- Click to Enter Button -->
         <div id="enter-button-container" class="button-container">
@@ -65,20 +65,24 @@
 
     <script src="script.js"></script>
     <script>
-        // YouTube API ready function
+        var player;
         function onYouTubeIframeAPIReady() {
-            var player;
             player = new YT.Player('intro-video', {
                 events: {
+                    'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
                 }
             });
         }
 
-        // Check for video end
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            event.target.unMute();  // Ensure the video is unmuted
+        }
+
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.ENDED) {
-                // The button is always visible now
+                document.getElementById('enter-button-container').style.display = 'block';
             }
         }
 
