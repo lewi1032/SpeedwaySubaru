@@ -18,6 +18,7 @@ a, button, .marker, .marker-label, .close {
     height: 100vh;
     color: white; /* Set text color to white */
     cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+    padding: 10px; /* Add padding for smaller screens */
 }
 
 .video-wrapper {
@@ -156,4 +157,34 @@ a, button, .marker, .marker-label, .close {
     color: black;
     text-decoration: none;
     cursor: pointer; /* Finger pointer cursor for close button */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-wrapper iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    #enter-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .popup-content {
+        width: 95%;
+    }
+
+    .popup-title {
+        font-size: 28px;
+    }
+
+    .marker-label {
+        font-size: 16px;
+        padding: 3px 7px;
+    }
+
+    .marker img {
+        width: 40px;
+    }
 }
