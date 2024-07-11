@@ -16,7 +16,7 @@
             </video>
         </div>
         <!-- Click to Enter Button -->
-        <div id="enter-button-container" class="button-container">
+        <div id="enter-button-container" class="button-container" style="display: none;">
             <button id="enter-button" onclick="showMap()">Click to enter</button>
         </div>
     </div>
@@ -71,7 +71,7 @@
             document.getElementById('enter-button-container').style.display = 'block';
         });
 
-        // Show the map and hide the button
+        // Show the map and hide the video section
         function showMap() {
             document.getElementById('intro-video-section').style.display = 'none';
             document.getElementById('map-container').style.display = 'flex';
