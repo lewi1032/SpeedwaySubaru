@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+a, button, .marker, .marker-label, .close {
+    cursor: pointer; /* Finger pointer cursor for clickable elements */
+}
+
+.video-section {
+    background-color: black; /* Set background to black */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white; /* Set text color to white */
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+.button-container {
+    display: block; /* Ensure the button is always displayed */
+    margin-top: 10px; /* Move the button closer to the video */
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+#enter-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Finger pointer cursor for button */
+}
+
+#enter-button:hover {
+    background-color: #0056b3;
+    cursor: pointer; /* Finger pointer cursor for button */
+}
+
+.map-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: white; /* Set background to white */
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: white; /* Set background to white */
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+.satellite-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+.marker {
+    position: absolute;
+    cursor: pointer; /* Finger pointer cursor for marker */
+    transform: translate(-50%, -100%); /* Center the pin horizontally and vertically */
+}
+
+.marker img {
+    width: 50px; /* Size of the pin image */
+    height: auto;
+}
+
+.marker-label {
+    position: absolute;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: 20px;
+    color: blue;
+    text-align: center;
+    transform: translate(-50%, -100%);
+    left: 50%;
+    cursor: pointer; /* Finger pointer cursor for marker label */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
+}
+
+.marker:hover .marker-label,
+.marker-label:hover {
+    transform: translate(-50%, -100%) scale(1.1); /* Grow on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    cursor: url('car-cursor.png'), auto; /* Custom car cursor */
+}
+
+.popup-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+    text-align: center;
+}
+
+.popup-title {
+    font-size: 36px;
+    color: blue;
+    margin: 20px 0;
+}
+
+.popup-image {
+    width: 100%;
+    height: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer; /* Finger pointer cursor for close button */
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer; /* Finger pointer cursor for close button */
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Map with Intro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- YouTube Video Embed -->
+    <div id="intro-video-section" class="video-section">
+        <div id="intro-video-container" class="video-wrapper">
+            <iframe id="intro-video" width="1200" height="675" src="https://www.youtube.com/embed/DqX6vSCv2lA?si=kQfcgnc46gGlP4ZN&amp;controls=0&amp;autoplay=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <!-- Click to Enter Button -->
+        <div id="enter-button-container" class="button-container">
+            <button id="enter-button" onclick="showMap()">Click to enter</button>
+        </div>
+    </div>
+
+    <!-- Satellite Image and Markers (hidden initially) -->
+    <div id="map-container" class="map-section" style="display: none;">
+        <div class="image-container">
+            <img src="satellite-image.jpg" alt="Satellite Image" class="satellite-image">
+            <div class="marker" style="top: calc(20% + 336px); left: calc(30% + 48px);" onclick="showPopup('popup1')">
+                <img src="pin.png" alt="Marker Pin">
+            </div>
+            <div class="marker-label" style="top: calc(24% + 336px); left: calc(30% + 48px);" onclick="showPopup('popup1')">Speedway Subaru</div>
+
+            <div class="marker" style="top: calc(30% + 336px); left: calc(40% + 216px);" onclick="showPopup('popup2')">
+                <img src="pin.png" alt="Marker Pin">
+            </div>
+            <div class="marker-label" style="top: calc(34% + 336px); left: calc(40% + 216px);" onclick="showPopup('popup2')">Speedway VW</div>
+
+            <div class="marker" style="top: calc(40% + 240px); left: calc(50% + 288px);" onclick="showPopup('popup3')">
+                <img src="pin.png" alt="Marker Pin">
+            </div>
+            <div class="marker-label" style="top: calc(44% + 240px); left: calc(50% + 288px);" onclick="showPopup('popup3')">Speedway Pre-owned</div>
+        </div>
+    </div>
+
+    <div id="popup1" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup1')">&times;</span>
+            <h2 class="popup-title">Speedway Subaru</h2>
+            <img src="dealership1.jpg" alt="Speedway Subaru" class="popup-image">
+        </div>
+    </div>
+
+    <div id="popup2" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup2')">&times;</span>
+            <h2 class="popup-title">Speedway VW</h2>
+            <img src="dealership2.jpg" alt="Speedway VW" class="popup-image">
+        </div>
+    </div>
+
+    <div id="popup3" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup3')">&times;</span>
+            <h2 class="popup-title">Speedway Pre-owned</h2>
+            <img src="dealership3.jpg" alt="Speedway Pre-owned" class="popup-image">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // YouTube API ready function
+        function onYouTubeIframeAPIReady() {
+            var player;
+            player = new YT.Player('intro-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // Check for video end
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.ENDED) {
+                // The button is always visible now
+            }
+        }
+
+        // Show the map and hide the button
+        function showMap() {
+            document.getElementById('intro-video-section').style.display = 'none';
+            document.getElementById('map-container').style.display = 'flex';
+        }
+
+        // Load YouTube API script
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+</body>
+</html>
