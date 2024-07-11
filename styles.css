@@ -187,4 +187,23 @@ a, button, .marker, .marker-label, .close {
     .marker img {
         width: 40px;
     }
+
+    .image-container {
+        max-width: 100%;
+        padding: 0 10px; /* Add some padding to the sides */
+    }
+
+    .marker {
+        width: 30px; /* Adjust the size of the markers */
+        height: 30px;
+    }
+
+    .marker img {
+        width: 30px; /* Adjust the size of the pin image */
+        height: auto;
+    }
+
+    .marker-label {
+        font-size: 14px; /* Adjust font size */
+    }
 }
