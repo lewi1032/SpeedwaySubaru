@@ -10,10 +10,10 @@
     <!-- YouTube Video Embed -->
     <div id="intro-video-section" class="video-section">
         <div id="intro-video-container" class="video-wrapper">
-            <iframe id="intro-video" width="1200" height="675" src="https://www.youtube.com/embed/DqX6vSCv2lA?autoplay=1&mute=1&enablejsapi=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe id="intro-video" width="1200" height="675" src="https://www.youtube.com/embed/DqX6vSCv2lA?enablejsapi=1&controls=0&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <!-- Click to Enter Button -->
-        <div id="enter-button-container" class="button-container" style="display: none;">
+        <div id="enter-button-container" class="button-container">
             <button id="enter-button" onclick="showMap()">Click to enter</button>
         </div>
     </div>
@@ -63,6 +63,7 @@
         </div>
     </div>
 
+    <script src="script.js"></script>
     <script>
         var player;
         function onYouTubeIframeAPIReady() {
@@ -96,16 +97,6 @@
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Show popup
-        function showPopup(popupId) {
-            document.getElementById(popupId).style.display = 'block';
-        }
-
-        // Close popup
-        function closePopup(popupId) {
-            document.getElementById(popupId).style.display = 'none';
-        }
     </script>
 </body>
 </html>
